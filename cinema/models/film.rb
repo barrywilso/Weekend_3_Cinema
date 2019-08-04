@@ -46,7 +46,7 @@ class Film
     sql = "SELECT customers.* FROM customers INNER JOIN tickets ON customers.id = tickets.customer_id WHERE tickets.film_id = $1"
     values = [@id]
     customers = SqlRunner.run(sql, values)
-    return customers.map {|customer| Customer.new(customers)}
+    return customers.map {|customer| Customer.new(customer)}
   end
 
 end
